@@ -1,11 +1,11 @@
+import cv2              # type: ignore
+from PIL import Image   # type: ignore
 import os
-from PIL import Image
 import numpy as np
-import cv2
 from argparse import ArgumentParser
-from typing import List
+from typing import List, Optional
 
-def canny_edge_detection(image:str, width:int=None, height:int=None) -> List[str]:
+def canny_edge_detection(image:str, width:Optional[int]=None, height:Optional[int]=None) -> List[str]:
     if width is None and height is None:
         original_image = np.array(Image.open(image))
     else:
