@@ -32,6 +32,7 @@ pip install rembg[gpu]
 ### option 3 (when use zoedepth)
 
 ~~~
+pip install matplotlib
 pip install timm
 ~~~
 
