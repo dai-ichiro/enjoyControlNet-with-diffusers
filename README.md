@@ -29,6 +29,12 @@ pip install controlnet-aux
 pip install rembg[gpu]
 ~~~
 
+### option 3 (when use zoedepth)
+
+~~~
+pip install timm
+~~~
+
 ## How to use canny2image.py
 
 ~~~
