@@ -11,7 +11,7 @@ pip install xformers==0.0.17.dev466
 ## New Requirements (PyTorch 2.0)
 
 ~~~
-pip install torch --index-url https://download.pytorch.org/whl/cu118
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 pip install git+https://github.com/huggingface/diffusers.git
 pip install transformers accelerate safetensors opencv-python
 pip install xformers
