@@ -1,10 +1,9 @@
 from transformers import AutoImageProcessor, UperNetForSemanticSegmentation
-from PIL import Image
 from huggingface_hub import hf_hub_download
 from diffusers.utils import load_image
 import torch
 from torch import nn
-import numpy
+import numpy as np
 import cv2
 
 image_processor = AutoImageProcessor.from_pretrained("openmmlab/upernet-convnext-xlarge")
