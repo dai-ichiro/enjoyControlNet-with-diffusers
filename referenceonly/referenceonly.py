@@ -31,15 +31,18 @@ def main(args):
        prompt_embeds = compel([prompt])
        negative_prompt_embeds = compel([negative_prompt])
 
+       style_fidelity = args.style_fidelity
+
        result_img = pipe(
               ref_image=input_image,
               prompt_embeds = prompt_embeds,
               negative_prompt_embeds=negative_prompt_embeds,
               num_inference_steps=25,
               reference_attn=True,
-              reference_adain=False).images[0]
+              reference_adain=False,
+              style_fidelity=style_fidelity).images[0]
 
-       result_img.save("result.png")
+       result_img.save(f"style_fidelity_{style_fidelity}result.png")
        
 if __name__ == "__main__":
     parser = ArgumentParser()
@@ -54,6 +57,12 @@ if __name__ == "__main__":
         required=True,
         type=str,
         help='original image'
+    )
+    parser.add_argument(
+        '--style_fidelity',
+        default=0.5,
+        type=float,
+        help='style_fidelity'
     )
     args = parser.parse_args()
     main(args)
