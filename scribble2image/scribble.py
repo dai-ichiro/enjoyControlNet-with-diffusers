@@ -14,7 +14,7 @@ def make_scribble_image(image:str, threshold:float=None) -> List[str]:
 
     image = Image.open(image)
     resolution = image.height
-    hed = HEDdetector.from_pretrained('lllyasviel/ControlNet')
+    hed = HEDdetector.from_pretrained("lllyasviel/Annotators")
     hed_array = np.array(hed(image, detect_resolution=resolution, image_resolution=resolution).convert('L'))
     
     os.makedirs('scribble_results', exist_ok=True)
