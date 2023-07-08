@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     '--controlnet',
     type=str,
-    default='controlnet/sd-controlnet-canny'
+    default='controlnet/control_v11p_sd15_canny'
 )
 parser.add_argument(
     '--model',
