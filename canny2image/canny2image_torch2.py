@@ -126,7 +126,7 @@ match scheduler:
     case _:
         None
 
-pipe.load_textual_inversion("EasyNegative-test", weight_name="EasyNegative.safetensors", token="EasyNegative")
+pipe.load_textual_inversion("embeddings", weight_name="EasyNegative.safetensors", token="EasyNegative")
 #pipe.enable_xformers_memory_efficient_attention()
 
 if args.prompt is not None and os.path.isfile(args.prompt):
