@@ -99,7 +99,7 @@ match scheduler:
 
 pipe.enable_xformers_memory_efficient_attention()
 
-image = load_image(opt.image).resize((width, height))
+init_image = load_image(opt.image).resize((width, height))
 mask_image = load_image(opt.mask).resize((width, height))
 
 if os.path.isdir(opt.hint):
@@ -137,7 +137,7 @@ for hint_image in hint_list:
         generator = torch.manual_seed(seed_i)
         image = pipe(
             prompt,
-            image,
+            init_image,
             mask_image,
             controlnet_conditioning_image,
             negative_prompt=negative_prompt,
