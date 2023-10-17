@@ -4,6 +4,8 @@
     "width": 768,
     "height": 768,
 
+    "num_inference_steps": 50,
+
     "scheduler": "multistepdpm",
 
     "seed_first": 341774366206100,
@@ -43,21 +45,21 @@
         },
         {
             "name": "openpose",
-            "enable": false,
+            "enable": true,
             "path": "controlnet/control_v11p_sd15_openpose",
             "image": "42_pose.png",
             "conditioning_scale": 0.5
         },
         {
             "name": "depth",
-            "enable": true,
+            "enable": false,
             "path": "controlnet/control_v11f1p_sd15_depth",
             "image": "42_depth.png",
             "conditioning_scale": 0.5
         },
         {
             "name": "lineart",
-            "enable": true,
+            "enable": false,
             "path": "controlnet/control_v11p_sd15_lineart",
             "image": "42_lineart.png",
             "conditioning_scale": 0.5
