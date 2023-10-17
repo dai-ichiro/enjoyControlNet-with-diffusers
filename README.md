@@ -54,8 +54,8 @@ https://touch-sp.hatenablog.com/entry/2023/02/23/181611
 
 ~~~
 python multi_controlnet.py ^
-  --controlnet controlnet\sd-controlnet-canny controlnet\sd-controlnet-scribble controlnet\sd-controlnet-scribble ^
-  --image canny.png scribble1.png scribble2.png ^
+  --controlnet controlnet/control_v11p_sd15_canny controlnet/control_v11f1p_sd15_depth ^
+  --image canny.png depth.png ^
   --model model\anything-v4.0 ^
   --vae vae\anime2_vae ^
   --prompt prompt.txt ^
