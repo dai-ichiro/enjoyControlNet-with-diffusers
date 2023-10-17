@@ -87,6 +87,7 @@ for i in seeds:
         negative_prompt=n_prompt,
         image = image_list,
         generator = torch.manual_seed(i),
+        controlnet_conditioning_scale=controlnet_scale,
         num_inference_steps=30,
     ).images[0]
     image.save(os.path.join(save_folder, f"seed{i}.png"))
