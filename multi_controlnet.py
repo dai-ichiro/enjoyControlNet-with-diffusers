@@ -72,7 +72,8 @@ pipe = StableDiffusionControlNetPipeline.from_pretrained(
     safety_checker=None,
     torch_dtype=torch.float16).to('cuda')
 pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
-pipe.enable_xformers_memory_efficient_attention()
+
+#pipe.enable_xformers_memory_efficient_attention()
 
 if args.prompt is not None and os.path.isfile(args.prompt):
     print(f'reading prompts from {args.prompt}')
