@@ -38,19 +38,22 @@
             "name": "canny",
             "enable": true,
             "path": "controlnet/control_v11p_sd15_canny",
-            "image": "42_canny.png"
+            "image": "42_canny.png",
+            "conditioning_scale": 0.5
         },
         {
             "name": "openpose",
             "enable": true,
             "path": "controlnet/control_v11p_sd15_openpose",
-            "image": "42_pose.png"
+            "image": "42_pose.png",
+            "conditioning_scale": 0.5
         },
         {
             "name": "depth",
             "enable": false,
             "path": "controlnet/control_v11f1p_sd15_depth",
-            "image": "42_depth.png"
+            "image": "42_depth.png",
+            "conditioning_scale": 0.5
         }
     ]
 }

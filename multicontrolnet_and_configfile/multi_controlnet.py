@@ -18,6 +18,7 @@ seeds = range(start, end, step)
 
 controlnet_list = []
 image_list = []
+controlnet_scale = []
 controlnet_name_list = []
 
 for controlnet in config["controlnet"]:
@@ -27,6 +28,9 @@ for controlnet in config["controlnet"]:
         )
         image_list.append(
             load_image(controlnet["image"]).resize((width, height))
+        )
+        controlnet_scale.append(
+            controlnet["conditioning_scale"]
         )
         controlnet_name_list.append(
             controlnet["name"]
