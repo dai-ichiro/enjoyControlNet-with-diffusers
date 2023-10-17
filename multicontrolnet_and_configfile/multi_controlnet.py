@@ -42,19 +42,18 @@ pipe = AutoPipelineForText2Image.from_pretrained(
     safety_checker=None,
     torch_dtype=torch.float16).to('cuda')
 
-scheduler = config["scheduler"]
-match scheduler:
-    case 'pmdn':
+match config.get("scheduler"):
+    case "pmdn":
         from diffusers import  PNDMScheduler
         pipe.scheduler = PNDMScheduler.from_config(pipe.scheduler.config)
-    case 'multistepdpm':
+    case "multistepdpm":
         from diffusers import DPMSolverMultistepScheduler
         pipe.scheduler = DPMSolverMultistepScheduler.from_config(
             pipe.scheduler.config,
             algorithm_type="sde-dpmsolver++",
             use_karras_sigmas=True
         )
-    case 'eulera':
+    case "eulera":
         from diffusers import EulerAncestralDiscreteScheduler
         pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
     case _:
