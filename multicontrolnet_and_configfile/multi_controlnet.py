@@ -36,16 +36,20 @@ for controlnet in config["controlnet"]:
             controlnet["name"]
         )
 
+model_name = config["model"]
 pipe = AutoPipelineForText2Image.from_pretrained(
-    config["model"],
+    model_name,
     controlnet=controlnet_list,
     safety_checker=None,
-    torch_dtype=torch.float16).to('cuda')
+    torch_dtype=torch.float16
+).to('cuda')
+print(f"model: {model_name}")
 
 match config.get("scheduler"):
     case "pmdn":
         from diffusers import  PNDMScheduler
         pipe.scheduler = PNDMScheduler.from_config(pipe.scheduler.config)
+        print("scheduler: pmdn")
     case "multistepdpm":
         from diffusers import DPMSolverMultistepScheduler
         pipe.scheduler = DPMSolverMultistepScheduler.from_config(
@@ -53,9 +57,11 @@ match config.get("scheduler"):
             algorithm_type="sde-dpmsolver++",
             use_karras_sigmas=True
         )
+        print("scheduler: multisteppdm")
     case "eulera":
         from diffusers import EulerAncestralDiscreteScheduler
         pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
+        print("scheduler: eulera")
     case _:
         None
 
