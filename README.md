@@ -56,8 +56,8 @@ https://touch-sp.hatenablog.com/entry/2023/02/23/181611
 python multi_controlnet.py ^
   --controlnet controlnet/control_v11p_sd15_canny controlnet/control_v11f1p_sd15_depth ^
   --image canny.png depth.png ^
-  --model model\anything-v4.0 ^
-  --vae vae\anime2_vae ^
+  --model model/anything-v4.0 ^
+  --vae vae/anime2_vae ^
   --prompt prompt.txt ^
   --n_samples 20
 ~~~
