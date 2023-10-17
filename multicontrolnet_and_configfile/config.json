@@ -1,8 +1,8 @@
 {
     "model": "model/toonyou_beta6_ema",
     
-    "width": 512,
-    "height": 512,
+    "width": 768,
+    "height": 768,
 
     "scheduler": "multistepdpm",
 
@@ -23,8 +23,8 @@
         }
     ],
 
-    "prompt": "1girl, masterpiece, best quality, extremely detailed",
-    "n_prompt": " EasyNegative, bad_prompt_version2-neg, monochrome, worst quality, low quality",
+    "prompt": "simplistic drawing of a young pretty woman, masterpiece, best quality, extremely detailed",
+    "n_prompt": "EasyNegative, bad_prompt_version2-neg, missing fingers, deformed fingers, deformed hands, extra fingers",
 
     "lora": [
         {
@@ -36,23 +36,30 @@
     "controlnet": [
         {
             "name": "canny",
-            "enable": true,
+            "enable": false,
             "path": "controlnet/control_v11p_sd15_canny",
             "image": "42_canny.png",
             "conditioning_scale": 0.5
         },
         {
             "name": "openpose",
-            "enable": true,
+            "enable": false,
             "path": "controlnet/control_v11p_sd15_openpose",
             "image": "42_pose.png",
             "conditioning_scale": 0.5
         },
         {
             "name": "depth",
-            "enable": false,
+            "enable": true,
             "path": "controlnet/control_v11f1p_sd15_depth",
             "image": "42_depth.png",
+            "conditioning_scale": 0.5
+        },
+        {
+            "name": "lineart",
+            "enable": true,
+            "path": "controlnet/control_v11p_sd15_lineart",
+            "image": "42_lineart.png",
             "conditioning_scale": 0.5
         }
     ]
