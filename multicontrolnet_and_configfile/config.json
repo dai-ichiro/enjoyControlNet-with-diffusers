@@ -1,0 +1,57 @@
+{
+    "model": "model/toonyou_beta6_ema",
+    
+    "width": 512,
+    "height": 512,
+
+    "scheduler": "multistepdpm",
+
+    "seed_first": 341774366206100,
+    "seed_step": 20000,
+    "n_samples": 10,
+
+    "textual_inversion": [
+        {
+            "enable": true,
+            "path": "embeddings/EasyNegative.safetensors",
+            "token": "easynegative"
+        },
+        {
+            "enable": true,
+            "path": "embeddings/bad_prompt_version2-neg.pt",
+            "token": "bad_prompt_version2-neg"
+        }
+    ],
+
+    "prompt": "1girl, masterpiece, best quality, extremely detailed",
+    "n_prompt": " EasyNegative, bad_prompt_version2-neg, monochrome, worst quality, low quality",
+
+    "lora": [
+        {
+            "enable": true,
+            "path": "lora/more_details.safetensors"
+        }
+    ],
+
+    "controlnet": [
+        {
+            "name": "canny",
+            "enable": true,
+            "path": "controlnet/control_v11p_sd15_canny",
+            "image": "42_canny.png"
+        },
+        {
+            "name": "openpose",
+            "enable": true,
+            "path": "controlnet/control_v11p_sd15_openpose",
+            "image": "42_pose.png"
+        },
+        {
+            "name": "depth",
+            "enable": false,
+            "path": "controlnet/control_v11f1p_sd15_depth",
+            "image": "42_depth.png"
+        }
+    ]
+}
+    
