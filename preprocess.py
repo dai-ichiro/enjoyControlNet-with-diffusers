@@ -36,13 +36,19 @@ if __name__ == "__main__":
         required=True,
         help="preprocess type"
     )
+    parser.add_argument(
+        "--to_gif",
+        action="store_true",
+        help="output type, gif or not"
+    )
 
     args = parser.parse_args()
     images = controlnet_preprocess(args.video, args.type)
 
-    os.makedirs(args.type, exist_ok=False)
-    for i, image in enumerate(images):
-        image.save(os.path.join(args.type, f"{i}.png"))
-    
-        
-    
+    if args.to_gif:
+        from diffusers.utils import export_to_gif
+        export_to_gif(images, f"{args.type}.gif")
+    else:
+        os.makedirs(args.type, exist_ok=False)
+        for i, image in enumerate(images):
+            image.save(os.path.join(args.type, f"{i}.png"))
